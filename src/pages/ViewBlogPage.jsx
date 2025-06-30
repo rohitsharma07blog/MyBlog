@@ -10,7 +10,7 @@ export default function ViewBlogPage() {
     const {setBlog} = useContext(blogContext);
     useEffect(() => {
         // Fetch the blog data based on id and set it in context
-        fetch(`/public/blogs/${id}.md`)
+        fetch(`/blogs/${id}.md`)
             .then(response => {
                 return response.text()})
                 .then(content => {
