@@ -1,9 +1,10 @@
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, useParams } from 'react-router-dom'
 import './App.css'
 import LandingPage from './pages/LandingPage';
-import ViewBlog from './pages/ViewBlog'
+import ViewBlogPage from './pages/ViewBlogPage'
 import Layout from './Layout';
+import BlogContextProvider from './context/blogContext/BlogContextProvider';
 
 const router = createBrowserRouter([
   {
@@ -16,8 +17,8 @@ const router = createBrowserRouter([
       }
       ,
       {     
-      path: '/blog/:id',
-      element: <ViewBlog/>,
+      path: '/blog/:date/:category/:title/:id',
+      element: <BlogContextProvider><ViewBlogPage/></BlogContextProvider>
       }
     ]
   },

@@ -4,39 +4,7 @@
         "title": "Flutter-Dart: Cross Platform Mobile App Development",
         "description": "This is the content of my first post. It covers the basics of Flutter and Dart for mobile app development.  ",
         "date": "2023-10-01",
-        "genre": "Personal",
+        "category": "Personal",
         "image": "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg"
-    },
-    {
-        "id": 2,
-        "title": "My Second Post",
-        "description": "This is the content of my second post. It builds upon the ideas presented in my first post.",
-        "date": "2023-10-02",
-        "genre": "Personal",
-        "image": "https://images.pexels.com/photos/31530707/pexels-photo-31530707.jpeg"
-    },
-    {
-        "id": 3,
-        "title": "My Third Post",
-        "description": "This is the content of my third post. It explores new topics and ideas.",
-        "date": "2023-10-03",
-        "genre": "Personal",
-        "image": "https://images.pexels.com/photos/31530707/pexels-photo-31530707.jpeg"
-    },
-    {
-        "id": 4,
-        "title": "My Fourth Post",
-        "description": "This is the content of my fourth post. It continues to expand on my blogging journey.",
-        "date": "2023-10-04",
-        "genre": "Personal",
-        "image": "https://images.pexels.com/photos/31530707/pexels-photo-31530707.jpeg"
-    },
-    {
-        "id": 5,
-        "title": "My Fifth Post",
-        "description": "This is the content of my fifth post. It summarizes my thoughts and experiences so far.",
-        "date": "2023-10-05",
-        "genre": "Personal",
-        "image": "https://images.pexels.com/photos/31530707/pexels-photo-31530707.jpeg"
     }
 ]
