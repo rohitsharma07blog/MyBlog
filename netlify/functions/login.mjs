@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
-require('dotenv').config();
+import 'dotenv/config';
+dotenv.config();
 
 const SECRET = process.env.JWT_SECRET;
 const userName = process.env.USER_NAME;
