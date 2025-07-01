@@ -1,3 +1,3 @@
-export const NAME = "Raj Sharma";
-export const EMAIL = "rajrsharma2004@gmail.com";
+export const NAME = "Rohit Sharma";
+export const EMAIL = "rohit.sharma@gmail.com";
 
