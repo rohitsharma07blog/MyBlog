@@ -12,7 +12,7 @@ export default async (req, context) =>{
             body: JSON.stringify({ error: 'Method Not Allowed' })
         };
     }
-    const { username, password: userPassword } = JSON.parse(req.body);
+    const { username, password: userPassword } = req.body;
     if (username === userName && userPassword === password) {
         const token = jwt.sign({ username }, SECRET, { expiresIn: '5h' });
         return {
