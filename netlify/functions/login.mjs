@@ -18,7 +18,8 @@ export default async (req, context) =>{
             }
         );
     }
-    const { username, password: userPassword } = req.body;
+    const body = await req.json();
+    const { username, password: userPassword } = body;
     console.log(username, userPassword, userName, password);
     if (username === userName && userPassword === password) {
         const token = jwt.sign({ username }, SECRET, { expiresIn: '5h' });
