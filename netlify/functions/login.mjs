@@ -7,21 +7,39 @@ const password = process.env.PASSWORD;
 
 export default async (req, context) =>{
     if(req.method !== 'POST') {
-        return {
-            statusCode: 405,
-            body: JSON.stringify({ error: 'Method Not Allowed' })
-        };
+        return new Response(
+            JSON.stringify({ error: 'Method Not Allowed' }),
+            {
+                status: 405,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Cache-Control': 'no-cache'
+                }
+            }
+        );
     }
     const { username, password: userPassword } = req.body;
     if (username === userName && userPassword === password) {
         const token = jwt.sign({ username }, SECRET, { expiresIn: '5h' });
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ token })
-        };
+        return new Response(
+            JSON.stringify({token : token}),
+            {
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Cache-Control': 'no-cache'
+                }
+            }
+        );
     }
-    return {
-        statusCode: 401,
-        body: JSON.stringify({ error: 'Unauthorized' })
-    };
+    return new Response(
+        JSON.stringify({ error: 'Invalid username or password' }),
+        {
+            status: 401,
+            headers: {
+                'Content-Type': 'application/json',
+                'Cache-Control': 'no-cache'
+            }
+        }
+    );
 }
