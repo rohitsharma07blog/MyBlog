@@ -27,7 +27,7 @@ const updatePostData = async(title, category, image, description, content) => {
         description,
         date: new Date().toISOString()
     });
-    console.log('Post data before update:', postData);
+    console.log('Post data before update:', fetchref.sha);
     // Convert updated postData to base64
     const updatedContent = Buffer.from(JSON.stringify(postData)).toString('base64');
     const postmetadata = await fetch(url, {
