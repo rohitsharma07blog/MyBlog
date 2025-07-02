@@ -15,9 +15,11 @@ const updatePostData = async(title, category, image, description, content) => {
         }
     });
     const data = await fetchref.json();
+    console.log('Fetched post_data.json:', data);
     const jsonContent = Buffer.from(data.content, 'base64').toString('utf-8');
     const postData = JSON.parse(jsonContent);
     const postId = nanoid();
+
     postData.push({
         id : postId,
         title,
@@ -111,7 +113,6 @@ export default async (req, context) => {
     }
 
     // Publish blog post logic here
-    console.log('Publishing blog post:', title, content);
     const success = await updatePostData(title, category, image, description, content);
     if (!success) {
         return new Response(
