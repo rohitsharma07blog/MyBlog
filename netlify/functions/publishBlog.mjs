@@ -30,7 +30,7 @@ const updatePostData = async(title, category, image, description, content) => {
     });
     // Convert updated postData to base64
     const updatedContent = Buffer.from(JSON.stringify(postData)).toString('base64');
-    await fetch(apiUrl, {
+    await fetch(url, {
         method: "PUT",
         headers: {
         Authorization: `token ${GITHUB_TOKEN}`,
