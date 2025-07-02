@@ -7,7 +7,7 @@ const SECRET = process.env.JWT_SECRET;
 
 const updatePostData = async(title, category, image, description, content) => {
     try{
-    const url = `https://api.github.com/repos/${process.env.GITHUB_USERNAME}/${process.env.REPO_NAME}/contents/public/post_data.json?ref=${process.env.BRANCH}`;
+    const url = `https://api.github.com/repos/${process.env.GITHUB_USERNAME}/${process.env.REPO_NAME}/contents/public/post_data.json?ref=${process.env.BRANCH_NAME}`;
     const fetchref = await fetch(url, {
         headers: {
             'Authorization': `token ${process.env.GITHUB_TOKEN}`,
@@ -40,7 +40,7 @@ const updatePostData = async(title, category, image, description, content) => {
         message: "Append new item to post_data.json",
         content: updatedContent,
         sha: fetchref.sha,
-        branch: process.env.BRANCH,
+        branch: process.env.BRANCH_NAME,
         }),
     });
     const postUrl = `https://api.github.com/repos/${process.env.GITHUB_USERNAME}/${process.env.REPO_NAME}/contents/public/blogs/${postId}.md`;
@@ -53,7 +53,7 @@ const updatePostData = async(title, category, image, description, content) => {
         body: JSON.stringify({
             message: `Publish blog post: ${title}`,
             content: Buffer.from(content).toString('base64'),
-            branch: process.env.BRANCH
+            branch: process.env.BRANCH_NAME
         })
     });
     return true;
