@@ -15,7 +15,6 @@ const updatePostData = async(title, category, image, description, content) => {
         }
     });
     const data = await fetchref.json();
-    console.log('Fetched post_data.json:', data);
     const jsonContent = Buffer.from(data.content, 'base64').toString('utf-8');
     const postData = JSON.parse(jsonContent);
     const postId = nanoid();
@@ -33,7 +32,7 @@ const updatePostData = async(title, category, image, description, content) => {
     await fetch(url, {
         method: "PUT",
         headers: {
-        Authorization: `token ${GITHUB_TOKEN}`,
+        Authorization: `token ${process.env.GITHUB_TOKEN}`,
         Accept: "application/vnd.github.v3+json",
         },
         body: JSON.stringify({
