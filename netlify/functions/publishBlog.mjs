@@ -14,7 +14,7 @@ const updatePostData = async(title, category, image, description, content) => {
             'Accept': 'application/vnd.github.v3+json'
         }
     });
-    console.log('Fetch reference:', fetchref);
+   
     const data = await fetchref.json();
     const jsonContent = Buffer.from(data.content, 'base64').toString('utf-8');
     const postData = JSON.parse(jsonContent);
@@ -40,7 +40,7 @@ const updatePostData = async(title, category, image, description, content) => {
         body: JSON.stringify({
         message: "Append new item to post_data.json",
         content: updatedContent,
-        sha: fetchref.sha,
+        sha: data.sha,
         branch: process.env.BRANCH_NAME,
         }),
     });
