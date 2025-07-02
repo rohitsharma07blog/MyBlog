@@ -27,6 +27,7 @@ const updatePostData = async(title, category, image, description, content) => {
         description,
         date: new Date().toISOString()
     });
+    console.log('Post data before update:', postData);
     // Convert updated postData to base64
     const updatedContent = Buffer.from(JSON.stringify(postData)).toString('base64');
     const postmetadata = await fetch(url, {
@@ -42,7 +43,7 @@ const updatePostData = async(title, category, image, description, content) => {
         branch: process.env.BRANCH_NAME,
         }),
     });
-    console.log('Post metadata updated:', postmetadata);
+    console.log('Post metadata updated:', postmetadata.ok);
     const postUrl = `https://api.github.com/repos/${process.env.GITHUB_USERNAME}/${process.env.REPO_NAME}/contents/public/blogs/${postId}.md`;
     const postpublist = await fetch(postUrl, {
         method: 'PUT',
@@ -56,7 +57,6 @@ const updatePostData = async(title, category, image, description, content) => {
             branch: process.env.BRANCH_NAME
         })
     });
-    console.log('Blog post published:', postpublist);
     return true;
     } catch (error) {
         console.error('Error updating post data:', error);
