@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       element: <BlogContextProvider><ViewBlogPage/></BlogContextProvider>
       },
       {
-        path : 'admin',
+        path : '/admin',
         element: <AdminContextProvider><AdminPage /></AdminContextProvider>
       },
       
