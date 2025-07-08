@@ -85,6 +85,7 @@ export default async (req, context) => {
 
     // Verify JWT
     const token = req.headers.get('Authorization')?.split(' ')[1];
+    console.log('Received token:', token);
     if (!token) {
         return new Response(
             JSON.stringify({ error: 'Unauthorized' }),
