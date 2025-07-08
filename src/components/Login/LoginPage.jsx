@@ -18,14 +18,14 @@ export default function LoginPage(){
             },
             body: JSON.stringify({ username : userName, password })
         }).then((response) =>{
-            console.log(response.json());
             if(response.status === 200){
                 return response.json().token;
             }
             else{
                 return "error";
             }
-        }).then(token => {
+        }).then((token) => {
+            console.log(token);
             if(token !== "error"){
                 setToken(token);
             }
