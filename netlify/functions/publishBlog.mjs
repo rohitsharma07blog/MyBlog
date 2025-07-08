@@ -102,6 +102,7 @@ export default async (req, context) => {
         const decoded = jwt.verify(token, JWT_SECRET);
         console.log('Decoded JWT:', decoded);
     } catch (error) {
+        console.error('JWT verification failed:', error);
         return new Response(
             JSON.stringify({ error: 'Invalid token' }),
             {
