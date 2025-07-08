@@ -84,7 +84,7 @@ export default async (req, context) => {
     const { title, category, image, description, content } = body;
 
     // Verify JWT
-    const token = req.headers.get('Authorization')?.split(' ')[1];
+    const token = req.headers.authorization?.split(' ')[1];
     console.log('Received token:', token);
     if (!token) {
         return new Response(

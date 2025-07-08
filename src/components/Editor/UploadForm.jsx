@@ -20,7 +20,7 @@ export default function UploadForm({setMetadataForm, markdown}) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'authorization': `Bearer ${token}`
             },
             body: JSON.stringify(metadata)
         }).then((response) =>{
