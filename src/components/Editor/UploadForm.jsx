@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import adminContext from '../../context/adminContext/AdminContext';
 
 export default function UploadForm({setMetadataForm, markdown}) {
     const [imageURL, setImageURL] = useState(undefined);
@@ -6,7 +7,7 @@ export default function UploadForm({setMetadataForm, markdown}) {
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [error, setError] = useState("");
-
+    const {token} = useContext(adminContext)
     const upload = async ()=>{
         const metadata = {
             title: title,
@@ -19,6 +20,7 @@ export default function UploadForm({setMetadataForm, markdown}) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(metadata)
         }).then((response) =>{
