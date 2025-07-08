@@ -17,8 +17,9 @@ export default function LoginPage(){
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ username : userName, password })
-        }).then((response) =>{
-                return response.json().token;
+        }).then(async (response) =>{
+                const body = await response.json();
+                return body.token;
         }).then((token) => {
             console.log(token);
             if(token !== "error"){
