@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import adminContext from "../../context/adminContext/AdminContext";
+import js from "@eslint/js";
 
 export default function LoginPage(){
     const [userName, setUserName] = useState('');
@@ -17,7 +18,7 @@ export default function LoginPage(){
             },
             body: JSON.stringify({ username : userName, password })
         }).then(response =>{
-            console.log(response);
+            console.log(response.body,json());
             if(response.status === 200){
                 return response.json().token;
             }
