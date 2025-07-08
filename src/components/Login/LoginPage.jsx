@@ -18,12 +18,7 @@ export default function LoginPage(){
             },
             body: JSON.stringify({ username : userName, password })
         }).then((response) =>{
-            if(response.status === 200){
                 return response.json().token;
-            }
-            else{
-                return "error";
-            }
         }).then((token) => {
             console.log(token);
             if(token !== "error"){
