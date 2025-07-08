@@ -99,7 +99,7 @@ export default async (req, context) => {
     }
 
     try {
-        const decoded = jwt.verify(token, SECRET);
+        const decoded = jwt.verify(token, JWT_SECRET);
         console.log('Decoded JWT:', decoded);
     } catch (error) {
         return new Response(
