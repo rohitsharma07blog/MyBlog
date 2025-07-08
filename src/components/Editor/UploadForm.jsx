@@ -8,6 +8,7 @@ export default function UploadForm({setMetadataForm, markdown}) {
     const [description, setDescription] = useState("");
     const [error, setError] = useState("");
     const {token} = useContext(adminContext);
+    console.log(token);
     const upload = async ()=>{
         const metadata = {
             title: title,
