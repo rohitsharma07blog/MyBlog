@@ -7,7 +7,7 @@ export default function UploadForm({setMetadataForm, markdown}) {
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [error, setError] = useState("");
-    const {token} = useContext(adminContext)
+    const {token} = useContext(adminContext);
     const upload = async ()=>{
         const metadata = {
             title: title,
@@ -49,7 +49,7 @@ export default function UploadForm({setMetadataForm, markdown}) {
 
                 <input className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Title" name="title" value={title} onChange={(e) => setTitle(e.target.value)}/>
 
-                <input className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="email" placeholder="Category" name="category" value={category} onChange={(e) => setCategory(e.target.value)}/>
+                <input className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Category" name="category" value={category} onChange={(e) => setCategory(e.target.value)}/>
 
                 <input className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={imageURL} onChange={(e) => setImageURL(e.target.value)} type="text" placeholder="Image URL" name="image"/>
                 <br />
@@ -70,7 +70,7 @@ export default function UploadForm({setMetadataForm, markdown}) {
                 <textarea className="shadow mb-4 min-h-0 appearance-none border rounded h-64 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description...." name="description" style={{height: "50px"}}></textarea>
 
                 <div className="flex justify-between">
-                    <button onClick={upload} className="shadow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" value="Upload">
+                    <button onClick={upload} className="shadow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                         Upload
                     </button>
                     <button onClick={() => setMetadataForm(false)}
