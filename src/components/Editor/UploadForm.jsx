@@ -73,9 +73,9 @@ export default function UploadForm({setMetadataForm, markdown}) {
                 <textarea className="shadow mb-4 min-h-0 appearance-none border rounded h-64 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description...." name="description" style={{height: "50px"}}></textarea>
 
                 <div className="flex justify-between">
-                    <button onClick={upload} className="shadow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                    {isLoading ? <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div> :<button onClick={upload} className="shadow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                         Upload
-                    </button>
+                    </button>}
                     <button onClick={() => setMetadataForm(false)}
                         className="shadow bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                         Back
