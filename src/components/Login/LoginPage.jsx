@@ -22,10 +22,11 @@ export default function LoginPage(){
                 const body = await response.json();
                 return body.token;
         }).then((token) => {
-            if(token !== "error"){
+            if(token !== undefined){
                 setToken(token);
             }
             else{
+                setToken('');
                 setError("Invalid username or password");
             }
             setIsLoading(false);
