@@ -8,7 +8,9 @@ export default function UploadForm({setMetadataForm, markdown}) {
     const [description, setDescription] = useState("");
     const [error, setError] = useState("");
     const {token} = useContext(adminContext);
+    const [isLoading, setIsLoading] = useState(false);
     const upload = async ()=>{
+        setIsLoading(true);
         const metadata = {
             title: title,
             category: category,
@@ -29,6 +31,7 @@ export default function UploadForm({setMetadataForm, markdown}) {
             } else {
                 setError("Failed to upload metadata. Please try again.");
             }
+            setIsLoading(false);
         });
     }
 
