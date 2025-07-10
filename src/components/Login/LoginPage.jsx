@@ -21,7 +21,6 @@ export default function LoginPage(){
                 const body = await response.json();
                 return body.token;
         }).then((token) => {
-            console.log(token);
             if(token !== "error"){
                 setToken(token);
             }
