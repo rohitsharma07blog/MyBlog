@@ -4,8 +4,10 @@ import adminContext from "../../context/adminContext/AdminContext";
 export default function DeleteConfirmation({setDeleteConfirmationShow, blogId}){
     const {token} = useContext(adminContext);
     const [error, setError] = useState('');
+    const [isLoading, setLoading] = useState(false);
+    
     const handleDelete = async ()=>{
-        console.log(blogId)
+        setLoading(true);
         await fetch('/.netlify/functions/deleteBlog', 
             {
                 method : 'POST',
@@ -27,6 +29,7 @@ export default function DeleteConfirmation({setDeleteConfirmationShow, blogId}){
             }else{
                 setError('Something went wrong! Please try again');
             }
+            setLoading(false);
         });
     }
 
@@ -40,7 +43,7 @@ export default function DeleteConfirmation({setDeleteConfirmationShow, blogId}){
                 d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
         <h3 className="text-xl font-normal text-gray-500 mt-5 mb-6">{(error === '') ?  'Are you sure you want to delete this blog?' : error}</h3>
-        {(error == '') && <button onClick={handleDelete}
+        {(error == '') && isLoading? <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-200"></div> :<button onClick={handleDelete}
             className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-base inline-flex items-center px-3 py-2.5 text-center mr-2">
             Yes, I'm sure
         </button>}
