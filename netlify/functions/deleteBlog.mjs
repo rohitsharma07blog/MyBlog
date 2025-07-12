@@ -10,7 +10,7 @@ const removeBlog = async(blogId) => {
         const ref = await fetch(
             url,
             {
-                method : 'PUT',
+                method : 'POST',
                 headers : {
                     'Authorization' : `token ${process.env.GITHUB_TOKEN}`,
                     'Accept': 'application/vnd.github.v3+json'
