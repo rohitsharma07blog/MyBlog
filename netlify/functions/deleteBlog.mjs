@@ -74,7 +74,7 @@ const removeBlog = async(blogId) => {
             body : JSON.stringify({
                 message : `DELETE  ${blogId}`,
                 sha : getRefData.sha,
-                branch : process.env.BRANCH,
+                branch : process.env.BRANCH_NAME,
             }),
         });
         console.log(deleteRef);//log
