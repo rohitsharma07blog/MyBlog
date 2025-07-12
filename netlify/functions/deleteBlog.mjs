@@ -26,16 +26,13 @@ const removeBlog = async(blogId) => {
         const newJson = jsonData.filter(obj => obj.id !== blogId);
         const newJsonString = JSON.stringify(newJson);
 
-        console.log(newJsonString);
-        console.log(blogId);
-
         const base64Data = Buffer.from(newJsonString).toString('base64');
 
         //updating the file
         const postData = await fetch(
             url,
             {
-                method : 'POST',
+                method : 'PUT',
                 headers : {
                     Authorization: `token ${process.env.GITHUB_TOKEN}`,
                     Accept: "application/vnd.github.v3+json",
@@ -48,6 +45,9 @@ const removeBlog = async(blogId) => {
                 })
             }
         );
+
+        console.log(postData);
+
         //returning error
         if(!postData.ok){
             throw new Error("Post updating failed");
