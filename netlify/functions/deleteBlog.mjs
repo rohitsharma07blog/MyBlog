@@ -19,7 +19,7 @@ const removeBlog = async(blogId) => {
         
         //reading data from file
         const data = await ref.json();
-        const jsonDataString = Buffer.from(data.content, 'base64').toString();
+        const jsonDataString = Buffer.from(data.content, 'base64').toString('utf-8');
         const jsonData = JSON.parse(jsonDataString);
 
         //creqting new data by removing the object with give id
@@ -44,7 +44,7 @@ const removeBlog = async(blogId) => {
                     message : "Post_data.json is updated after deleting",
                     content : base64Data,
                     sha : data.sha,
-                    branch : process.env.BRANCH,
+                    branch : process.env.BRANCH_NAME,
                 })
             }
         );
@@ -77,9 +77,8 @@ const removeBlog = async(blogId) => {
                 Accept: "application/vnd.github.v3+json",
             },
             body : JSON.stringify({
-                message : `DELETE  ${blogId}`,
+                message : `delete  ${blogId}`,
                 sha : getRefData.sha,
-                branch : process.env.BRANCH_NAME,
             }),
         });
         console.log(deleteRef);//log
