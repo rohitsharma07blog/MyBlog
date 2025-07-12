@@ -50,7 +50,7 @@ const removeBlog = async(blogId) => {
         }
         
         //Get file SHA
-        const blogUrl = `http://api.github.com/repos/${process.env.GITHUB_USERNAME}/${process.env.REPO_NAME}/contents/public/blogs/${blogId}.md?ref=${process.env.BRANCH_NAME}`
+        const blogUrl = `http://api.github.com/repos/${process.env.GITHUB_USERNAME}/${process.env.REPO_NAME}/contents/public/blogs/${blogId}.md`
         console.log(blogUrl); //log
         const getRef = await fetch(
             blogUrl,
@@ -63,7 +63,7 @@ const removeBlog = async(blogId) => {
         )
 
         const getRefData = await getRef.json();
-
+        console.log(getRefData.sha); //log
         //deleting file
         const deleteRef = await fetch(blogUrl, {
             method : "DELETE",
