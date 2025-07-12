@@ -12,7 +12,7 @@ export default function DeleteConfirmation({setDeleteConfirmationShow, blogId}){
                     'Content-Type' : 'application/json',
                     'Authorization' : `Bearer ${token}`
                 },
-                body : JSON.stringify(blogId)
+                body : JSON.stringify({blogId})
             }
         ).then((res)=>{
             if(res.status == 200){
