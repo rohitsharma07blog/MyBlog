@@ -20,7 +20,7 @@ export default function Footer() {
                 </center>
 
                 <br />
-                <Link to={'/admin'} className="mt-4 bg-indigo-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300">Admin Login</Link>
+                <Link to={'/admin/Editor'} className="mt-4 bg-indigo-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300">Admin Login</Link>
             </div>
             <div class="md:w-2/3 md:pl-8">
                 <h2 class="text-xl font-semibold text-indigo-800 dark:text-white mb-4">About Me</h2>

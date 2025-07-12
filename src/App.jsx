@@ -7,6 +7,10 @@ import Layout from './Layout';
 import BlogContextProvider from './context/blogContext/BlogContextProvider';
 import AdminPage from './pages/AdminPage';
 import AdminContextProvider from './context/adminContext/AdminContextProvider';
+import Editor from './components/Editor/Editor';
+import DeleteBlogs from './components/DeleteBlog/DeleteBlog';
+
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -23,9 +27,18 @@ const router = createBrowserRouter([
       },
       {
         path : '/admin',
-        element: <AdminContextProvider><AdminPage /></AdminContextProvider>
-      },
-      
+        element: <AdminContextProvider><AdminPage /></AdminContextProvider>,
+        children : [
+          {
+            path : 'editor',
+            element : <Editor/>
+          },
+          {
+            path : 'deleteBlogs',
+            element : <DeleteBlogs/>
+          }
+        ]
+      },      
     ]
   },
 
