@@ -19,16 +19,12 @@ const removeBlog = async(blogId) => {
         
         //reading data from file
         const data = await ref.json();
-
-        console.log(data); // log
-
         const jsonDataString = Buffer.from(data.content, 'base64').toString();
         const jsonData = JSON.parse(jsonDataString);
 
         //creqting new data by removing the object with give id
         const newJson = jsonData.filter(obj => obj.id !== blogId);
         const newJsonString = JSON.stringify(newJson);
-        console.log(newJsonString); // log
         const base64Data = Buffer.from(newJsonString).toString('base64');
 
         //updating the file
@@ -55,6 +51,7 @@ const removeBlog = async(blogId) => {
         
         //Get file SHA
         const blogUrl = `http://api.github.com/repos/${process.env.GITHUB_USERNAME}/${process.env.REPO_NAME}/contents/public/blogs/${blogId}.md?ref=${process.env.BRANCH_NAME}`
+        console.log(blogUrl); //log
         const getRef = await fetch(
             blogUrl,
             {
