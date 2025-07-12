@@ -77,7 +77,7 @@ const removeBlog = async(blogId) => {
                 branch : process.env.BRANCH,
             }),
         });
-        
+        console.log(deleteRef);//log
         if(!deleteRef.ok){
             throw new Error(`Failed to delete file ${blogId}`);
         }
