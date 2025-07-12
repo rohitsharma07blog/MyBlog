@@ -25,6 +25,10 @@ const removeBlog = async(blogId) => {
         //creqting new data by removing the object with give id
         const newJson = jsonData.filter(obj => obj.id !== blogId);
         const newJsonString = JSON.stringify(newJson);
+
+        console.log(newJsonString);
+        console.log(blogId);
+
         const base64Data = Buffer.from(newJsonString).toString('base64');
 
         //updating the file
@@ -48,8 +52,6 @@ const removeBlog = async(blogId) => {
         if(!postData.ok){
             throw new Error("Post updating failed");
         }
-        
-        console.log(postData);
 
 
         //Get file SHA
