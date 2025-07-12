@@ -10,6 +10,7 @@ const removeBlog = async(blogId) => {
         const ref = await fetch(
             url,
             {
+                method : 'PUT',
                 headers : {
                     'Authorization' : `token ${process.env.GITHUB_TOKEN}`,
                     'Accept': 'application/vnd.github.v3+json'
@@ -71,7 +72,7 @@ const removeBlog = async(blogId) => {
         console.log(getRefData.sha); //log
         //deleting file
         const deleteRef = await fetch(blogUrl, {
-            method : "DELETE",
+            method : 'DELETE',
             headers : {
                 Authorization: `token ${process.env.GITHUB_TOKEN}`,
                 Accept: "application/vnd.github.v3+json",
