@@ -50,7 +50,7 @@ const removeBlog = async(blogId) => {
         }
         
         //Get file SHA
-        const blogUrl = `http://api.github.com/repos/${process.env.GITHUB_USERNAME}/${process.env.REPO_NAME}/contents/public/blogs/${blogId}.md`
+        const blogUrl = `http://api.github.com/repos/${process.env.GITHUB_USERNAME}/${process.env.REPO_NAME}/contents/public/blogs/${blogId}.md?ref=${process.env.BRANCH_NAME}`
         console.log(blogUrl); //log
         const getRef = await fetch(
             blogUrl,
