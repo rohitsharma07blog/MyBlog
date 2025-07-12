@@ -5,9 +5,7 @@ const removeBlog = async(blogId) => {
     try{
 
         //updating post_data.json file
-        const url = `http://api.github.com/repos/${process.env.GITHUB_USERNAME}/${process.env.REPO_NAME}/contents/public/post_data.json?ref=${process.env.BRANCH}`;
-
-        console.log(url); //log
+        const url = `http://api.github.com/repos/${process.env.GITHUB_USERNAME}/${process.env.REPO_NAME}/contents/public/post_data.json?ref=${process.env.BRANCH_NAME}`;
 
         const ref = await fetch(
             url,
