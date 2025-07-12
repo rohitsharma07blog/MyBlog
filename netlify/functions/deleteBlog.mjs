@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import jwt, { verify } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 const removeBlog = async(blogId) => {
     try{
@@ -114,7 +114,7 @@ export default async (req, context) => {
     }
 
     try{
-        const decoded = verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         await removeBlog(blogId);
         return new Response(
             JSON.stringify({message : "Blog deleted!"}),
