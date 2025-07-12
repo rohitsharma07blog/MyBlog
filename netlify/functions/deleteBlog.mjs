@@ -102,6 +102,10 @@ export default async (req, context) => {
     }
     const body = await req.json();
     const {blogId} = body;
+    
+    console.log(body);
+    console.log(blogId);
+
     const token = req.headers.get('authorization')?.split(' ')[1];
     if(!token){
         return new Response(

@@ -5,6 +5,7 @@ export default function DeleteConfirmation({setDeleteConfirmationShow, blogId}){
     const {token} = useContext(adminContext);
     const [error, setError] = useState('');
     const handleDelete = async ()=>{
+        console.log(blogId)
         await fetch('/.netlify/functions/deleteBlog', 
             {
                 method : 'POST',
