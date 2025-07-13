@@ -9,7 +9,7 @@ export default function Footer() {
            
         <div className="flex flex-col md:flex-row">
             <div className="md:w-1/3 text-center mb-8 md:mb-0">
-                <img src={PROFILE_IMAGE} alt="Profile Picture" className="rounded-full w-48 h-48 mx-auto mb-4 border-4 border-indigo-800 dark:border-blue-900 transition-transform duration-300 hover:scale-105"/>
+                <img src={PROFILE_IMAGE} alt="Profile Picture" className="rounded-full w-48 h-48 mx-auto mb-4 object-cover transition-transform duration-300 hover:scale-105"/>
                 <h1 className="text-2xl font-bold text-indigo-800 dark:text-white mb-2">{NAME}</h1>
                 <center>
 
