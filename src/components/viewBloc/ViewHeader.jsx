@@ -3,7 +3,7 @@ import blogContext from "../../context/blogContext/BlogContext";
 import { Link } from "react-router-dom";
 export default function ViewBlogHeader(){
     const {blog} = useContext(blogContext);
-
+    
     return (
         <div className="w-full flex bg-gradient-to-r justify-start bg-gray-900 p-2">
             <Link to="/" className="inline-flex items-center px-3 py-1.5 rounded-md text-white ">

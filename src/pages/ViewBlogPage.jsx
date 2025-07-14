@@ -19,7 +19,7 @@ export default function ViewBlogPage() {
                     content: content,
                     category: category,
                     title: title,
-                    date: date
+                    date: date.split('T')[0]
                 })})
     }, [id, setBlog]);
     return (

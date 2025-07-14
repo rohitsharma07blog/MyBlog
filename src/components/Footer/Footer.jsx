@@ -24,7 +24,7 @@ export default function Footer() {
             </div>
             <div class="md:w-2/3 md:pl-8">
                 <h2 class="text-xl font-semibold text-indigo-800 dark:text-white mb-4">About Me</h2>
-                <p class="text-gray-700 dark:text-gray-300 mb-6">
+                <p class="text-gray-700 text-lg text-justify dark:text-gray-300 m-3">
                    {ABOUT}
                 </p>              
                 <h2 class="text-xl font-semibold text-indigo-800 dark:text-white mb-4">Contact Information</h2>
