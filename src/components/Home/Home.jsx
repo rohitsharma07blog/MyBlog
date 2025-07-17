@@ -9,7 +9,7 @@ export default function Home() {
         .then(data => setBlogs(data));
     }, []);
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-1">
 
        { blogs.map((blog, index) => (
             <BlogInfoCard key={index} blogInfoObject={blog} />
