@@ -9,9 +9,13 @@ export default function Home() {
         .then(data => setBlogs(data));
     }, []);
     return (
-        blogs.map((blog, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+
+       { blogs.map((blog, index) => (
             <BlogInfoCard key={index} blogInfoObject={blog} />
         )
-    )); // Map through the blogs array and render a BlogInfoCard for each blog object
+    )}
+    </div>
+); // Map through the blogs array and render a BlogInfoCard for each blog object
    
 }
