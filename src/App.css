@@ -1,0 +1,11 @@
+/* src/index.css or src/App.css */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #474e58; /* Tailwind's blue-500 */
+  border-radius: 10px;
+}
